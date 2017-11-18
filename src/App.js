@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import ApiHelpers from './lib/api-helpers'
+
 class App extends Component {
   constructor (props) {
     super(props)

@@ -10,6 +10,9 @@
 /build
 /src/**/*.css
 
+# config
+/src/config
+
 # misc
 .DS_Store
 .env.local
