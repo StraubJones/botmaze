@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import './App.css';
 
 class App extends Component {
-  constructor () {
-    super()
-    this.state = {
-      inputValue: 'Cheese'
-    }
+  constructor (props) {
+    super(props)
+    this.state = {value: ''}
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount () {
@@ -18,8 +18,13 @@ class App extends Component {
     ctx.fillRect(0,0, 100, 100);
   }
 
-  commandEntered (value) {
-    console.log(value)
+  handleSubmit (event) {
+    console.log(this.state.value)
+    event.preventDefault();
+  }
+
+  handleChange (event) {
+    this.setState({value: event.target.value})
   }
 
   render () {
@@ -30,8 +35,14 @@ class App extends Component {
         </header>
         <p className="App-intro">
           Type in a command to move the sprite through the maze. <br />
-          <input className="App-input" value="" type="text" placeholder="Enter a command"></input>
         </p>
+
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <input className="App-input" type="text" value={this.state.value} onChange={this.handleChange}/>
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
         
         <canvas ref="canvas" width={800} height={500}/>
       </div>
