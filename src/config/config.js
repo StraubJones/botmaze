@@ -1,1 +1,0 @@
-window.configVars = { LUIS_API_KEY: '3fca0125-486a-4c5d-b72b-2d351d62e631', LUIS_APP_ID: 'd291baf7-1ed5-4aca-98b2-d3141a3d55dd', LUIS_SUBSCRIPTION_KEY: 'a8fd83e125d34b9a8ea32839149ce889' }
