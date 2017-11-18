@@ -6,7 +6,10 @@ import ApiHelpers from './lib/api-helpers'
 class App extends Component {
   constructor (props) {
     super(props)
-    this.state = {value: ''}
+    this.state = {
+      value: '',
+      intent: ''
+    }
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -22,6 +25,11 @@ class App extends Component {
 
   handleSubmit (event) {
     console.log(this.state.value)
+    ApiHelpers.getPhraseResponse(this.state.value).then((intent) => {
+      this.setState({
+        intent: intent
+      })
+    })
     event.preventDefault();
   }
 
@@ -45,7 +53,9 @@ class App extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
-        
+
+        <p>{this.state.intent}</p>
+
         <canvas ref="canvas" width={800} height={500}/>
       </div>
     );
